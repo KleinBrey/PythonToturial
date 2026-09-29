@@ -38,7 +38,8 @@ python -m pip install pandas duckdb
 | 课程 | 主要内容 | 在本项目中的用途 |
 | --- | --- | --- |
 | `00_series_dataframe.py` | Series、DataFrame、索引、列 | 理解行情表在内存中的样子 |
-| `01_read_csv_inspect.py` | 读取 CSV、数据类型、快速检查 | 接收外部行情数据后的第一步 |
+| `01_read_csv.py` | 读取 CSV、数据类型、快速检查 | 接收外部行情数据后的第一步 |
+| `01_read_sql.py` | 使用 `read_sql` 从 DuckDB 读取数据 | 对比 CSV 与 SQL 数据源的读取方式 |
 | `02_selection_filter_sort.py` | 选列、筛选、排序、`loc` | 根据价格、成交量等条件选股 |
 | `03_groupby_aggregate.py` | `groupby`、`agg`、`transform` | 按股票统计交易天数、均价、成交量 |
 | `04_merge_concat_apply.py` | `merge`、`concat`、`map` | 合并股票名称与日 K，追加新行情 |

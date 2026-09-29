@@ -1,4 +1,4 @@
-"""Pandas 第 1 课：读取日 K CSV，并做第一次数据检查。"""
+"""读取 CSV"""
 
 from pathlib import Path
 
@@ -7,8 +7,6 @@ import pandas as pd
 # CSV文件所在路径
 csv_path = Path(__file__).parent / "data" / "daily_bars.csv"
 
-# CSV想要存的路径
-output_csv_path = Path(__file__).parent / "data" / "output.csv"
 
 bars = pd.read_csv(
     csv_path,
@@ -36,11 +34,3 @@ print("\n=== 数值列统计 ===")
 print(bars[["open", "high", "low", "close", "volume"]].describe().round(2))
 
 print("\n日期范围：", bars["date"].min().date(), "至", bars["date"].max().date())
-
-
-# 把一个DataFrame转成CSV
-bars.to_csv(
-    output_csv_path,
-    index=False,
-    header=True,
-)

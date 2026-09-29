@@ -1,0 +1,11 @@
+{
+  "duckdb.databases": [
+    {
+      "alias": "market",
+      "type": "file",
+      "path": "/Users/kleinbrey/Documents/PythonToturial/pandas/data/market.duckdb",
+      "attached": false
+    }
+  ],
+  "duckdb.defaultDatabase": "market"
+}
