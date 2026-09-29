@@ -4,13 +4,22 @@ from pathlib import Path
 
 import pandas as pd
 
+# CSV文件所在路径
 csv_path = Path(__file__).parent / "data" / "daily_bars.csv"
 
+# CSV想要存的路径
+output_csv_path = Path(__file__).parent / "data" / "output.csv"
 
 bars = pd.read_csv(
     csv_path,
-    dtype={"symbol": "string"},  # 股票代码必须是字符串，保留开头的 0
-    parse_dates=["date"],  # 读取时直接把日期转为日期类型
+    # 约定每列的数据类型
+    dtype={
+        "symbol": str,
+        "name": str,
+        "volume": float,
+    },
+    # 读取时直接把日期转为日期类型
+    parse_dates=["date"],
 )
 
 
@@ -28,4 +37,10 @@ print(bars[["open", "high", "low", "close", "volume"]].describe().round(2))
 
 print("\n日期范围：", bars["date"].min().date(), "至", bars["date"].max().date())
 
-# 项目经验：拿到新数据，先看 head、shape、info 和 describe，再开始计算。
+
+# 把一个DataFrame转成CSV
+bars.to_csv(
+    output_csv_path,
+    index=False,
+    header=True,
+)
